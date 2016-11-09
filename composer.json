@@ -3,7 +3,7 @@
     "description": "A PHP class for fetching tweets from a Twitter user's timeline, and rendering them as an HTML list",
     "keywords": ["Twitter", "php", "composer"],
     "type": "library",
-    "license": ["MIT"],,
+    "license": ["MIT"],
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.0"

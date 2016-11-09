@@ -25,6 +25,8 @@
   * Feed parsing: https://github.com/themattharris/tmhOAuth
   * Hashtag/username parsing: https://github.com/mikenz/twitter-text-php
   */
+  namespace TweetPHP;
+  
  class TweetPHP {
     private $tmhOAuth;
     private $options;
@@ -114,17 +116,18 @@
      * Fetch tweets using Twitter API
      */
     private function fetch_tweets () {
+		
       $this->add_debug_item('Fetching fresh tweets using Twitter API.');
-
-      require_once(dirname(__FILE__) . '/lib/tmhOAuth/tmhOAuth.php');
-
+	  
       // Creates a tmhOAuth object.
-      $this->tmhOAuth = new tmhOAuth(array(
+      $this->tmhOAuth = new \TweetPHP\TmhOAuth\TmhOAuth(array(
         'consumer_key'    => $this->options['consumer_key'],
         'consumer_secret' => $this->options['consumer_secret'],
         'token'           => $this->options['access_token'],
         'secret'          => $this->options['access_token_secret']
       ));
+	  
+	  var_dump($this->tmhOAuth);
 
       // Request Twitter timeline.
       $params = array(
@@ -259,9 +262,8 @@
      * in a tweet to HTML links.
      */
     public function autolink ($tweet) {
-      require_once(dirname(__FILE__) . '/lib/twitter-text-php/lib/Twitter/Autolink.php');
-
-      $autolinked_tweet = Twitter_Autolink::create($tweet, false)
+		
+      $autolinked_tweet = \TweetPHP\Twitter\Autolink::create($tweet, false)
         ->setNoFollow(false)->setExternal(false)->setTarget('')
         ->setUsernameClass('')
         ->setHashtagClass('')

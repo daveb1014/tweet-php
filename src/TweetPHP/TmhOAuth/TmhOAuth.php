@@ -11,7 +11,9 @@
  *
  * 15 June 2013
  */
-class tmhOAuth {
+ namespace TweetPHP\TmhOAuth;
+ 
+class TmhOAuth {
   const VERSION = '0.8.2';
 
   var $response = array();

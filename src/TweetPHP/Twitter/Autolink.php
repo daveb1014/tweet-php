@@ -7,8 +7,6 @@
  * @package    Twitter
  */
 
-require_once 'Regex.php';
-
 /**
  * Twitter Autolink Class
  *
@@ -25,7 +23,10 @@ require_once 'Regex.php';
  * @license    http://www.apache.org/licenses/LICENSE-2.0  Apache License v2.0
  * @package    Twitter
  */
-class Twitter_Autolink extends Twitter_Regex {
+ 
+namespace TweetPHP\Twitter;
+ 
+class Autolink extends Regex {
 
   /**
    * CSS class for auto-linked URLs.

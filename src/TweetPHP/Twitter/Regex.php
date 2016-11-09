@@ -22,7 +22,8 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0  Apache License v2.0
  * @package    Twitter
  */
-abstract class Twitter_Regex {
+ namespace TweetPHP\Twitter;
+abstract class Regex {
 
   /**
    * Expression to at sign characters

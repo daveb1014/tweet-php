@@ -6,8 +6,6 @@
  * @package    Twitter
  */
 
-require_once 'Regex.php';
-
 /**
  * Twitter HitHighlighter Class
  *
@@ -23,7 +21,9 @@ require_once 'Regex.php';
  * @license    http://www.apache.org/licenses/LICENSE-2.0  Apache License v2.0
  * @package    Twitter
  */
-class Twitter_HitHighlighter extends Twitter_Regex {
+ namespace TweetPHP\Twitter;
+ 
+class HitHighlighter extends Regex {
 
   /**
    * The tag to surround hits with.
