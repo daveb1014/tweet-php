@@ -126,8 +126,6 @@
         'token'           => $this->options['access_token'],
         'secret'          => $this->options['access_token_secret']
       ));
-	  
-	  var_dump($this->tmhOAuth);
 
       // Request Twitter timeline.
       $params = array(
