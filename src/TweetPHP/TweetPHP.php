@@ -24,6 +24,8 @@
   * Credits:
   * Feed parsing: https://github.com/themattharris/tmhOAuth
   * Hashtag/username parsing: https://github.com/mikenz/twitter-text-php
+  *
+  * DB 23112022 minor updates to work with php 8
   */
   namespace TweetPHP;
   
@@ -59,7 +61,7 @@
           'ignore_retweets'       => true, // Ignore retweets
           'twitter_style_dates'   => false, // Use twitter style dates e.g. 2 hours ago
           'twitter_date_text'     => array('seconds', 'minutes', 'about', 'hour', 'ago'),
-          'date_format'           => '%I:%M %p %b %e%O', // The defult date format e.g. 12:08 PM Jun 12th. See: http://php.net/manual/en/function.strftime.php
+          'date_format'           => '%I:%M %p %b %e%O', // The default date format e.g. 12:08 PM Jun 12th. See: http://php.net/manual/en/function.strftime.php
           'date_lang'             => null, // Language for date e.g. 'fr_FR'. See: http://php.net/manual/en/function.setlocale.php
           'twitter_template'      => '<h2>Latest tweets</h2><ul id="twitter">{tweets}</ul>',
           'tweet_template'        => '<li><span class="status">{tweet}</span> <span class="meta"><a href="{link}">{date}</a></span></li>',
@@ -213,12 +215,14 @@
             break;
           default:
             $format = str_replace('%O', date('S', $tweet_time), $this->options['date_format']);
-            $display_time = strftime($format, $tweet_time);
+            //$display_time = strftime($format, $tweet_time);
+            $display_time = date($format, $tweet_time);// DB 23112022 php 8
             break;
         }
       } else {
         $format = str_replace('%O', date('S', $tweet_time), $this->options['date_format']);
-        $display_time = strftime($format, $tweet_time);
+        //$display_time = strftime($format, $tweet_time);
+        $display_time = date($format, $tweet_time);// DB 23112022 php 8
       }
 
       $href = 'http://twitter.com/' . $tweet['user']['screen_name'] . '/status/' . $tweet['id_str'];

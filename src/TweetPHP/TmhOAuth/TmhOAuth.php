@@ -662,7 +662,7 @@ class TmhOAuth {
     list($key, $value) = array_pad(explode(':', $header, 2), 2, null);
 
     $key = trim($key);
-    $value = trim($value);
+    if ($value) $value = trim($value);// DB 23112022 php 8
 
     if ( ! isset($this->response['headers'][$key])) {
       $this->response['headers'][$key] = $value;

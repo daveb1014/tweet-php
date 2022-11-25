@@ -1,7 +1,8 @@
 {
-    "name": "idealizetecnologia/tweetphp",
+    "name": "tweet-php/tweet-php",
     "description": "A PHP class for fetching tweets from a Twitter user's timeline, and rendering them as an HTML list",
     "keywords": ["Twitter", "php", "composer"],
+    "version": "dev-master",
     "type": "library",
     "license": ["MIT"],
     "require": {
